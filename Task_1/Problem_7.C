@@ -17,6 +17,7 @@ Output: "The sum of digits (12) is not a prime number."
 int main(){
     int x;
     do {
+        printf("Enter a postive number: ");
         scanf("%d", &x);
     }while (x <= 0);
 
