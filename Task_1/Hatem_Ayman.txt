@@ -1,0 +1,182 @@
+<<  Hatem Ayman Abd-Elkarim  >>
+
+    1. Simple C Program:
+#include <stdio.h>
+int main(){
+    printf("Hello World\n");
+    return 0;
+}
+Output: Hello World
+
+#include <LibraryName.h> -> to inlcude a library header file
+stdio.h -> standard input/output library -> to include printf()/scanf() functions, also other ones
+int main() -> main function starts the execution of program, the program should have one main function
+printf("any text\n"); \n -> escape sequence used to take new line,
+return -> terminates the execution of program
+
+    2. Primitive Data types in C 
+Numeric data types: int, float, double
+Logical: bool
+ASCII character: char[-128,127]
+Note: there is unsigned data types from each one: unsigned char[0,255]
+
+Declaration: int x; 
+Initialization: x = 10;
+Delaration with Initialization: int y = 10;
+Note you can declare more than one variable of the same type: int x,y,z; int x = 10, y = 11;
+
+    3. Format Specifiers
+%d -> int, %f -> float & double, %s -> string, %c -> char
+char = name[100]; // strings in C are declared as array of character
+scanf("%s", name); 
+// scanf("format_specifier", &variableName) -> this formats the input from the user to its suitable data type and stores it in the given variable address
+// arrays address is given by its name without the need of & operator
+printf("any text %s", name); -> printf() format a given data type to display it as string
+
+Another simple C program:
+int main(){
+char your_name[100];
+printf("Hello %s\n", your_name);
+return 0;
+}
+Input: Hatem Ayman
+Output: Hello Hatem Ayman
+
+    4. Arithmetic operators
+Binary operators: +, - , / , * , %
+Unary operators: ++, --, -, +
+int x = 1, y = 2;
+int sum = x + y; // sum = 1 + 2 = 3
+int product = x * y; // product = 1 * 2 = 2
+int division = x / y; // divition = 1 / 2 = 0 -> it is supposed to be 0.5 but the fraction part eliminates because it is stored as int
+int remainder = x % y; // remainder = 1 % 2 = 1
+x++; // x = x + 1 post increment
+++x; // x = x + 1 pre increment
+x--; // x = x - 1 post decrement
+--x; // x = x - 1 pre decrement
+-x; // x = -x     negative of the number
++x; // x = x      the value as it
+float z = (int) (x / y) + 1; // z = 1 / 2 + 1 = 1.5 -> type casting 
+
+Another simple C program:
+int main(){
+int x = 5;
+printf("%d", x++); // 5 -> print then add
+printf("%d", x); // 6
+printf("%d", ++x); // 7 -> add then print
+printf("%d", x); // 7
+printf("%d %d", x, x++); // 8 7 -> printf() walks through parameters from right to left
+return 0;
+}
+
+    5. Selection statements
+if (condtion){ // condition could be boolean true / false or 1 / 0
+    // some code 
+} else if (another condition in case the previous one is false){
+    // some code
+} else{ // if all conditions are false
+    // some code
+}
+
+Example:
+int num;
+scanf("%d", &num);
+if (num > 0){
+    printf("positive");
+}else if (num < 0){
+    System.out.printf("negative");
+}
+else 
+    System.out.printf("zero");
+Input: 2
+Output: positive
+Input: -2
+Output: negative
+Input: 0
+Output: zero
+
+switch (variable){
+    case 1:
+            // some code
+            break;
+    case 2:
+            // some code
+            break;
+    case n:
+            // some code
+            break;
+    default:
+            //some code
+            break;
+}
+Example:
+switch (num){
+    case 1:
+            printf("first option");
+            break;
+    case 2:
+            printf("second option");
+            break;
+    case 3:
+            printf("third option");
+            break;
+    default:
+            printf("invalid option")
+            break;
+}
+Input: 1
+Output: first option
+Input: 4
+Output: invalid option
+
+Note: ternay operator -> (condition ? this_value_if_true : this_value_if_false)
+Example:
+printf("%s", num % 2 == 0 ? "even" : "odd");
+Input: 2
+Output: even
+Input: 3
+Output: odd
+
+    6. Loops
+while(condition){
+    // some code and ensure that there is lines of code that break the loop
+}
+
+for (int counter; condition; lines of code that break the loop){
+    //some code that will be executed for specified number of iterations
+}
+
+do{
+    // some code that will be executed at least once
+}while(conditon)
+
+Example: prompt the user to enter positive numbers and terminates the program in case he entered 0 or negative number
+int num; scanf("%d", &num);
+while(num > 0){
+    printf("%d", num);
+    scanf("%d", &num);
+}
+Input: 2
+Output: 2
+Input: 3
+Output: 3
+Input: -1
+exited
+
+Example: print numbers from 0 - 10
+for (int i = 0; i <= 10; i++){
+    printf("%d", i);
+}
+
+Example: prompt the user to enter a positive number and re-prompt him again in case he entered 0 or negative number
+do{
+    printf("Enter a positive number: ");
+    scanf("%d", &num);
+}while(num <= 0)
+Enter a positive number: -2
+Enter a positive number:  0
+Enter a positive number:  1
+exited
+
+Note: you can use break statement inside if statement to go out break a loop at a given condition
+you can also use continue statement to skip an iteration of the loop 
