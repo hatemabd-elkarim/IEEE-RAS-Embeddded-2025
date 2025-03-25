@@ -14,10 +14,14 @@ int main(){
         remainders[i] = numbers[i] % 100;
     // remainder(a*b*c*d) = remainder (remainder(a) * reminder(b) * remainder(c) * remainder(d))
     int remainder = (remainders[0] * remainders[1] * remainders[2] * remainders[3]) % 100;
-    if (remainder < 10){
+    
+    /*if (remainder < 10){
         printf("0%d", remainder);
         return 0;
     }  
     printf("%d", remainder);
+    */
+   // better to use printf("%0d")
+   printf("%02d", remainder);
 
 }
