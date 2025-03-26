@@ -9,6 +9,7 @@ int main(){
     scanf("%d", &N);
     printf("%d", sequence(N));
 }
+
 int sequence(int N){
     if (N == 1)
         return 1;
