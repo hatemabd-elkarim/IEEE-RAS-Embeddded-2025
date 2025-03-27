@@ -1,0 +1,75 @@
+<< Hatem Ayman Abd-Elkarim >>
+
+    Functions and Recursion
+Experience has shown that the best way to develop and maintain a large program is to construct it from smaller pieces, each of which  
+is more manageable than the original program. This technique is called divide and conquer.
+Functions are used to modularize programs. C programs are typically written by combining new functions you write with prepackaged;
+The functions printf, scanf and pow that we’ve used are standard library functions. You can write your own functions to define 
+tasks that may be  used at many points in a program which makes your code more reusable.
+
+Simple Program:
+    #include <stdio.h>
+    int square(int y); // function prototype
+    int main(void) // any C program should have one and only one main function from which the program begin to execute
+    {
+    // loop 10 times and calculate and output square of x each time
+    for (int x = 1; x <= 10; ++x)
+    {
+        printf("%d ", square(x)); // function call
+    }
+    }
+    // square function definition returns the square of its parameter
+    int square(int y) // y is a copy of the argument to the function
+    {
+    return y * y; // returns the square of y as an int
+    }
+
+    The definition of function square shows that– square expects an integer parameter y.
+    The keyword int preceding the function name indicates  that square returns an integer result.
+    The return statement in square passes the value of the  expression y * y (that is, the result of the calculation)  back to the calling function
+    
+    Function square is invoked or called in main within the printf statement: 
+    printf("%d ", square(x)); function call– Function square receives a copy of the value of x in the  parameter y.
+    Then square calculates y * y. The result is passed back to function printf in  main where square was invoked, 
+    and printf displays  the result.
+
+    The compiler refers to the function prototype to check that any calls to square contain the correct return type,  
+    the correct number of arguments, the correct argument types, and that the arguments are in the correct order.
+
+    so we can conclude that any function defination can be as follows:
+         return-value-type function-name(parameter-list)
+                {
+                    // body of the functions
+                }
+    Note: values are passed to functions by values not reference, 
+    When arguments are passed by value, a copy of the argument’s value is made and passed to the called function.
+    Changes to the copy do not affect an original variable’s value in the caller.
+    Pass-by-value should be used whenever the called function does not need to modify the value of the caller’s original variable.
+
+   Example:
+    void square (int x);
+    int main(){
+        int x = 5;
+        square(x);
+        printf("%d", x); // output 5 Not 25 -> Logical error
+    }
+    void square (int x){ // the two variables are completely different in different scopes with different references
+        x = x * x;
+    }
+
+    Recursion:
+    a function can recall itself continously but you should define a base case to break the loop
+    Example: print the numbers from 1 to N 
+            void print(int N);
+            int main(){
+                int N;
+                scanf("%d", &N);
+                print(N);
+            }
+            void print(int N){
+                if (N <= 0) // base case
+                    return;
+                print(N-1);
+                printf("%d\n", N);
+            }
+        
