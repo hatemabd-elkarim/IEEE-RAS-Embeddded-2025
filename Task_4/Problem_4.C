@@ -12,7 +12,7 @@ Output:
 void print_even(char *str);
 int main(){
     char str[100];
-    scanf("%s", str);
+    scanf("%[^\n]s", str);
     print_even(str);
     return 0;
 }
