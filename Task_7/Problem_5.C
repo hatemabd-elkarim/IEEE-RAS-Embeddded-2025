@@ -51,6 +51,9 @@ int main() {
     double result = calculate(operand1, operand2, operation);
     printf("Result: %lf\n", result);
 
+    printf("Size of enum: %d", sizeof(Operation)); // 4
+    // size of enum is 4 bytes like int and it is fixed
+
     return 0;
 }
 
