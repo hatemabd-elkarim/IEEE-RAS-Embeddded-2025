@@ -18,8 +18,7 @@ struct student_info{
 
 void printStudent(struct student_info *ptr);
 int main(){
-    struct student_info s1;
-    s1 = {7,20,5,"Zagazig", "Ali"};
+    struct student_info s1 = {7,20,5,"Zagazig", "Ali"}; // Standard declaration avoiding errors
     printStudent(&s1);
     printf("Total size: %d\n", sizeof(s1));
 }
