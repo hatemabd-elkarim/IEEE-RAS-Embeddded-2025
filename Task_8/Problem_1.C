@@ -8,8 +8,7 @@ Descending order.
 
 #include <stdio.h>
 
-#define ASCENDING
-#define DESCENDING
+#define ASCENDING // you can comment this define to test descending sort
 
 void sortAscending(int arr[], int size);
 void sortDescending(int arr[], int size);
@@ -33,13 +32,15 @@ int main() {
         sortAscending(arr, size);
         printf("\nArray sorted in Ascending Order: ");
         printArray(arr,size);
-    #endif
-
-    #ifdef DESCENDING
+        printf("\n");
+    
+    #else
         sortDescending(arr, size);
         printf("\nArray sorted in Descending Order: ");
         printArray(arr,size);
+        printf("\n");
     #endif
+
 
     return 0;
 }
@@ -71,4 +72,5 @@ void printArray(int arr[], int size){
     for (int i = 0; i < size; i++) {
         printf("%d ", arr[i]);
     }
+    printf("\n");
 }
